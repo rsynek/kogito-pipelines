@@ -36,7 +36,8 @@ pipeline {
                         echo "Checkout repo ${repo}"
                         dir(repo){
                             deleteDir()
-                            checkout(githubscm.resolveRepository(repo, getGitAuthor(), 'master', false))
+                            //TODO: change to 0.17.x, in case of optaplanner 8.0.0.beta1
+                            checkout(githubscm.resolveRepository(repo, getGitAuthor(), 'beta1_planner2142', false))
                             sh 'git fetch origin'
                             String branchRemoteResult = sh(script: "git ls-remote origin ${getReleaseBranch()} | wc -l", returnStdout: true).trim()
                             if(Integer.parseInt(branchRemoteResult) > 0){
