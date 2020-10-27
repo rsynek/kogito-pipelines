@@ -69,11 +69,18 @@ pipeline {
         // IMAGE_PROMOTE_TAG => will be set in Initialization phase
 
         // Credentials
+        /*
         GIT_AUTHOR='kiegroup'
         GIT_AUTHOR_CREDS_ID = 'kie-ci' // username/password creds
         BOT_AUTHOR='bsig-gh-bot'
         BOT_AUTHOR_CREDS_ID='bsig-gh-bot' // username/password creds
         GITHUB_TOKEN_CREDS_ID='kie-ci2-token' // secret text creds
+        */
+        GIT_AUTHOR='rsynek'
+        GIT_AUTHOR_CREDS_ID = 'rsynek' // username/password creds
+        BOT_AUTHOR='rsynek-bot-account'
+        BOT_AUTHOR_CREDS_ID='rsynek-bot' // username/password creds
+        GITHUB_TOKEN_CREDS_ID='rsynek-gh-token' // secret text creds
     }
 
     stages {
