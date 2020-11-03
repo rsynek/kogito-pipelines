@@ -36,7 +36,10 @@ pipeline {
                         echo "Checkout repo ${repo}"
                         dir(repo){
                             deleteDir()
-                            checkout(githubscm.resolveRepository(repo, getGitAuthor(), 'master', false))
+                            //TODO: switch back after testing
+                            String branchName = repo == 'optaplanner' ? 'planner2217' : 'master'
+                            checkout(githubscm.resolveRepository(repo, getGitAuthor(), branchName, false))
+                            //checkout(githubscm.resolveRepository(repo, getGitAuthor(), 'master', false))
                             sh 'git fetch origin'
                             String branchRemoteResult = sh(script: "git ls-remote origin ${getReleaseBranch()} | wc -l", returnStdout: true).trim()
                             if(Integer.parseInt(branchRemoteResult) > 0){
